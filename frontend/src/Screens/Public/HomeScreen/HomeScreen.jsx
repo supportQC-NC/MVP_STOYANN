@@ -235,6 +235,39 @@ const HomeScreen = () => {
           </div>
         </section>
 
+        {/* ===== SECTION LOADERS ===== */}
+        <section className="section animate-fadeInUp delay-700">
+          <h2>Loaders</h2>
+
+          <div className="subsection">
+            <h3>Tailles</h3>
+            <div className="component-row">
+              <Loader size="sm" />
+              <Loader size="md" />
+              <Loader size="lg" />
+              <Loader size="xl" />
+            </div>
+          </div>
+
+          <div className="subsection">
+            <h3>Variantes</h3>
+            <div className="component-row">
+              <Loader variant="primary" />
+              <Loader variant="secondary" />
+              <div className="loader-dark-bg animate-morphBlob">
+                <Loader variant="white" />
+              </div>
+            </div>
+          </div>
+
+          <div className="subsection">
+            <h3>Avec texte</h3>
+            <div className="component-row">
+              <Loader text="Chargement en cours..." />
+            </div>
+          </div>
+        </section>
+
         {/* ===== SECTION INPUTS ===== */}
         <section className="section animate-fadeInUp delay-100">
           <h2>Champs de formulaire</h2>
@@ -830,39 +863,6 @@ const HomeScreen = () => {
               placeholder="Tapez quelque chose..."
             />
           </Modal>
-        </section>
-
-        {/* ===== SECTION LOADERS ===== */}
-        <section className="section animate-fadeInUp delay-700">
-          <h2>Loaders</h2>
-
-          <div className="subsection">
-            <h3>Tailles</h3>
-            <div className="component-row">
-              <Loader size="sm" />
-              <Loader size="md" />
-              <Loader size="lg" />
-              <Loader size="xl" />
-            </div>
-          </div>
-
-          <div className="subsection">
-            <h3>Variantes</h3>
-            <div className="component-row">
-              <Loader variant="primary" />
-              <Loader variant="secondary" />
-              <div className="loader-dark-bg animate-morphBlob">
-                <Loader variant="white" />
-              </div>
-            </div>
-          </div>
-
-          <div className="subsection">
-            <h3>Avec texte</h3>
-            <div className="component-row">
-              <Loader text="Chargement en cours..." />
-            </div>
-          </div>
         </section>
 
         {/* ===== SECTION FORM COMPLET ===== */}

@@ -1,138 +1,102 @@
-import { FaHome, FaSearch, FaRocket, FaSatellite } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
+import { FaHome, FaRocket } from "react-icons/fa";
 import { Button } from "../../../Components/Global";
 import "./NotFoundScreen.css";
 
 const NotFoundScreen = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+  const screenRef = useRef(null);
+
+  // Effet Parallaxe Magnétique
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (!screenRef.current) return;
+      const rect = screenRef.current.getBoundingClientRect();
+
+      // Position de la souris centrée (-0.5 à 0.5)
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+      setPosition({ x, y });
+    };
+
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
-    <div className="not-found-screen">
-      {/* ===== PARTICULES D'ARRIÈRE-PLAN ===== */}
-      <div className="nf-particles">
-        <div className="nf-particle nf-particle-1"></div>
-        <div className="nf-particle nf-particle-2"></div>
-        <div className="nf-particle nf-particle-3"></div>
-        <div className="nf-particle nf-particle-4"></div>
-        <div className="nf-particle nf-particle-5"></div>
-        <div className="nf-particle nf-particle-6"></div>
+    <div className="nf-2026-screen" ref={screenRef}>
+      {/* --- COUCHE 1: AURORA BACKGROUND (Fluide) --- */}
+      <div className="aurora-container">
+        <div className="aurora-blob aurora-1"></div>
+        <div className="aurora-blob aurora-2"></div>
+        <div className="aurora-blob aurora-3"></div>
       </div>
 
-      {/* ===== ORBITES DÉCORATIVES ===== */}
-      <div className="orbit-container">
-        <div className="orbit orbit-1"></div>
-        <div className="orbit orbit-2"></div>
-        <div className="orbit orbit-3"></div>
-        <div className="orbit-planet orbit-planet-1"></div>
-        <div className="orbit-planet orbit-planet-2"></div>
-        <div className="orbit-planet orbit-planet-3"></div>
-      </div>
+      {/* --- COUCHE 2: GRILLE DE PROFONDEUR --- */}
+      <div className="depth-grid"></div>
 
-      {/* ===== ÉLÉMENTS FLOTTANTS ===== */}
-      <div className="floating-elements">
-        <div className="floating-element element-1 animate-float">4</div>
-        <div className="floating-element element-2 animate-float delay-300">
-          0
-        </div>
-        <div className="floating-element element-3 animate-float delay-600">
-          4
-        </div>
-        <div className="floating-element element-4 animate-morphBlob">
-          <FaSatellite />
-        </div>
-      </div>
+      {/* --- COUCHE 3: GRANULATION CINÉMATIQUE --- */}
+      <div className="noise-overlay"></div>
 
-      {/* ===== CONTENU PRINCIPAL ===== */}
-      <div className="not-found-content">
-        {/* Icône animée */}
-        <div className="not-found-icon animate-scaleInBounce">
-          <div className="icon-glow"></div>
-          <div className="icon-ring animate-spin"></div>
-          <div className="icon-ring icon-ring-2"></div>
-          <FaSearch className="icon-search animate-pulse" />
-        </div>
-
-        {/* Code 404 avec effet glitch */}
-        <div className="not-found-code-wrapper">
-          <h1 className="not-found-code">
-            <span className="code-digit animate-flipInY">4</span>
-            <span className="code-digit code-zero animate-flipInY delay-150 animate-breathe">
-              0
-            </span>
-            <span className="code-digit animate-flipInY delay-300">4</span>
+      {/* --- CONTENU PRINCIPAL --- */}
+      <div
+        className="content-container"
+        style={{
+          transform: `translateX(${position.x * 20}px) translateY(${position.y * 20}px) rotateY(${position.x * 5}deg) rotateX(${position.y * -5}deg)`,
+        }}
+      >
+        {/* Le Numéro 404 en "Liquid Chrome" */}
+        <div className="chrome-title-wrapper">
+          <h1 className="chrome-title" data-text="404">
+            <span className="chrome-text">404</span>
+            <span className="chrome-reflection">404</span>
           </h1>
-          <div className="glitch-overlay" aria-hidden="true">
-            <span className="glitch-text" data-text="404">
-              404
-            </span>
-          </div>
         </div>
 
-        {/* Message */}
-        <h2 className="not-found-title animate-fadeInUp delay-400">
-          Page introuvable
-        </h2>
-        <p className="not-found-message animate-fadeInUp delay-500">
-          Oups ! La page que vous recherchez semble avoir disparu dans
-          l'espace...
-          <br />
-          <span className="message-highlight animate-textGlow">
-            Peut-être a-t-elle été déplacée ou supprimée ?
-          </span>
-        </p>
+        {/* Sous-titre flottant */}
+        <div
+          className="info-block"
+          style={{
+            transform: `translateX(${position.x * -30}px) translateY(${position.y * -30}px)`,
+          }}
+        >
+          <h2 className="info-title">Espace non cartographié</h2>
+          <p className="info-desc">
+            Il semble que vous ayez franchi les limites de notre galaxie. La
+            page que vous cherchez s'est évaporée dans le néant numérique.
+          </p>
 
-        {/* Boutons d'action */}
-        <div className="not-found-actions animate-fadeInUp delay-600">
-          <Button
-            variant="primary"
-            size="lg"
-            icon={<FaHome />}
-            to="/"
-            className="hover-lift hover-shine animate-pulseGlow"
-          >
-            Retour à l'accueil
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            icon={<FaRocket />}
-            to="/contact"
-            className="hover-lift hover-glow"
-          >
-            Nous contacter
-          </Button>
-        </div>
-
-        {/* Décoration */}
-        <div className="not-found-decoration animate-fadeIn delay-700">
-          <span className="decoration-line"></span>
-          <div className="decoration-dots">
-            <span className="animate-bounce delay-100"></span>
-            <span className="animate-bounce delay-200"></span>
-            <span className="animate-bounce delay-300"></span>
-          </div>
-          <span className="decoration-line"></span>
-        </div>
-
-        {/* Suggestions */}
-        <div className="not-found-suggestions animate-fadeInUp delay-800">
-          <p>Vous pouvez aussi essayer :</p>
-          <div className="suggestions-links">
-            <a href="/" className="suggestion-link hover-scale">
-              Accueil
-            </a>
-            <span className="suggestion-separator">•</span>
-            <a href="/features" className="suggestion-link hover-scale">
-              Fonctionnalités
-            </a>
-            <span className="suggestion-separator">•</span>
-            <a href="/pricing" className="suggestion-link hover-scale">
-              Tarifs
-            </a>
-            <span className="suggestion-separator">•</span>
-            <a href="/contact" className="suggestion-link hover-scale">
-              Contact
-            </a>
+          <div className="actions-group">
+            <Button
+              variant="primary"
+              size="lg"
+              icon={<FaHome />}
+              to="/"
+              className="btn-magnetic"
+            >
+              Retour sur Terre
+            </Button>
+            <Button
+              variant="ghost"
+              size="lg"
+              icon={<FaRocket />}
+              to="/features"
+              className="btn-ghost-custom"
+            >
+              Explorer l'app
+            </Button>
           </div>
         </div>
       </div>
+
+      {/* Élément décoratif : Anneau flottant */}
+      <div
+        className="floating-ring"
+        style={{
+          transform: `translateX(${position.x * 50}px) translateY(${position.y * 50}px) rotate(${position.x * 20}deg)`,
+        }}
+      ></div>
     </div>
   );
 };
