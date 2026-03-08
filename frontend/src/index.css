@@ -1,3 +1,19 @@
-body {
-  background-color: red;
-}
+/* ===== CSS INDEX - ORDRE D'IMPORT IMPORTANT ===== */
+
+/* 1. Variables (couleurs, polices, espacements) */
+@import "./CSS/variables.css";
+
+/* 2. Reset (normalisation du navigateur) */
+@import "./CSS/reset.css";
+
+/* 3. Base (styles globaux : body, titres, liens) */
+@import "./CSS/base.css";
+
+/* 4. Utilities (classes helper réutilisables) */
+@import "./CSS/utilities.css";
+
+/* 5. Components (boutons, inputs, cards, etc.) */
+@import "./CSS/components.css";
+
+/* 6. Animations (keyframes et classes d'animation) */
+@import "./CSS/animations.css";

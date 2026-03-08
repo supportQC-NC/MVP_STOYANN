@@ -1,0 +1,110 @@
+/* ===== INPUT COMPONENT ===== */
+.form-group {
+  margin-bottom: var(--space-md);
+}
+
+.label {
+  display: block;
+  margin-bottom: var(--space-xs);
+  font-family: var(--font-content);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--gray-300);
+}
+
+.label-required {
+  color: var(--danger-light);
+  margin-left: var(--space-xs);
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: var(--space-md);
+  color: var(--gray-500);
+  font-size: var(--text-lg);
+  pointer-events: none;
+  transition: color var(--transition-fast);
+}
+
+.input {
+  width: 100%;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-content);
+  font-size: var(--text-base);
+  color: var(--white);
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+}
+
+.input-with-icon {
+  padding-left: var(--space-2xl);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2),
+              0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+.input:focus + .input-icon,
+.input-wrapper:focus-within .input-icon {
+  color: var(--primary-light);
+}
+
+.input::placeholder {
+  color: var(--gray-500);
+}
+
+.input:disabled {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(255, 255, 255, 0.05);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ===== STATES ===== */
+.input-error {
+  border-color: var(--danger);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2),
+              0 0 20px rgba(239, 68, 68, 0.1);
+}
+
+.input-success {
+  border-color: var(--success);
+  background: rgba(34, 197, 94, 0.05);
+}
+
+.input-success:focus {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2),
+              0 0 20px rgba(34, 197, 94, 0.1);
+}
+
+/* ===== HELPER & ERROR TEXT ===== */
+.form-helper {
+  display: block;
+  margin-top: var(--space-xs);
+  font-size: var(--text-sm);
+  color: var(--gray-400);
+}
+
+.form-error {
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+  margin-top: var(--space-xs);
+  font-size: var(--text-sm);
+  color: var(--danger-light);
+}

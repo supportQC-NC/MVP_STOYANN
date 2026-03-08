@@ -1,0 +1,121 @@
+/* ===== ALERT COMPONENT ===== */
+.alert {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+  padding: var(--space-md) var(--space-lg);
+  border-radius: var(--radius-lg);
+  font-size: var(--text-sm);
+  animation: fadeInUp var(--transition-base) ease-out;
+  border: 1px solid transparent;
+  backdrop-filter: blur(8px);
+}
+
+.alert-icon {
+  font-size: var(--text-xl);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.alert-content {
+  flex: 1;
+}
+
+.alert-title {
+  font-family: var(--font-title);
+  font-weight: 600;
+  font-size: var(--text-base);
+  margin-bottom: var(--space-xs);
+}
+
+.alert-message {
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+.alert-dismiss {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  padding: var(--space-xs);
+  opacity: 0.7;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-dismiss:hover {
+  opacity: 1;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== VARIANTS ===== */
+.alert-success {
+  background: linear-gradient(135deg, rgba(22, 163, 74, 0.15), rgba(22, 163, 74, 0.05));
+  border-color: rgba(34, 197, 94, 0.3);
+  color: #4ade80;
+}
+
+.alert-success .alert-icon {
+  color: var(--success-light);
+}
+
+.alert-success .alert-dismiss {
+  color: #4ade80;
+}
+
+.alert-danger {
+  background: linear-gradient(135deg, rgba(220, 38, 38, 0.15), rgba(220, 38, 38, 0.05));
+  border-color: rgba(239, 68, 68, 0.3);
+  color: #f87171;
+}
+
+.alert-danger .alert-icon {
+  color: var(--danger-light);
+}
+
+.alert-danger .alert-dismiss {
+  color: #f87171;
+}
+
+.alert-alert {
+  background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(245, 158, 11, 0.05));
+  border-color: rgba(251, 191, 36, 0.3);
+  color: #fbbf24;
+}
+
+.alert-alert .alert-icon {
+  color: var(--alert-light);
+}
+
+.alert-alert .alert-dismiss {
+  color: #fbbf24;
+}
+
+.alert-info {
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.15), rgba(6, 182, 212, 0.05));
+  border-color: rgba(34, 211, 238, 0.3);
+  color: #22d3ee;
+}
+
+.alert-info .alert-icon {
+  color: var(--tertiary-light);
+}
+
+.alert-info .alert-dismiss {
+  color: #22d3ee;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

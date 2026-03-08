@@ -1,0 +1,129 @@
+:root {
+  /* ===== COULEURS ===== */
+  /* Primary - Bleu profond */
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1d4ed8;
+
+  /* Secondary - Violet */
+  --secondary: #7c3aed;
+  --secondary-light: #8b5cf6;
+  --secondary-dark: #6d28d9;
+
+  /* Tertiary - Cyan */
+  --tertiary: #06b6d4;
+  --tertiary-light: #22d3ee;
+  --tertiary-dark: #0891b2;
+
+  /* Danger - Rouge */
+  --danger: #dc2626;
+  --danger-light: #ef4444;
+  --danger-dark: #b91c1c;
+
+  /* Alert - Orange */
+  --alert: #f59e0b;
+  --alert-light: #fbbf24;
+  --alert-dark: #d97706;
+
+  /* Success - Vert */
+  --success: #16a34a;
+  --success-light: #22c55e;
+  --success-dark: #15803d;
+
+  /* Neutres */
+  --white: #ffffff;
+  --black: #0a0a0a;
+  --gray-100: #f3f4f6;
+  --gray-200: #e5e7eb;
+  --gray-300: #d1d5db;
+  --gray-400: #9ca3af;
+  --gray-500: #6b7280;
+  --gray-600: #4b5563;
+  --gray-700: #374151;
+  --gray-800: #1f2937;
+  --gray-900: #111827;
+
+  /* ===== POLICES ===== */
+  /* Title - Poppins (moderne, géométrique) */
+  --font-title: "Poppins", sans-serif;
+  /* Content - Inter (lisible, clean) */
+  --font-content: "Inter", sans-serif;
+
+  /* ===== TAILLES DE POLICE (rem) ===== */
+  --text-xs: 0.75rem; /* 12px */
+  --text-sm: 0.875rem; /* 14px */
+  --text-base: 1rem; /* 16px */
+  --text-lg: 1.125rem; /* 18px */
+  --text-xl: 1.25rem; /* 20px */
+  --text-2xl: 1.5rem; /* 24px */
+  --text-3xl: 1.875rem; /* 30px */
+  --text-4xl: 2.25rem; /* 36px */
+  --text-5xl: 3rem; /* 48px */
+
+  /* ===== ESPACEMENTS (rem) ===== */
+  --space-xs: 0.25rem; /* 4px */
+  --space-sm: 0.5rem; /* 8px */
+  --space-md: 1rem; /* 16px */
+  --space-lg: 1.5rem; /* 24px */
+  --space-xl: 2rem; /* 32px */
+  --space-2xl: 3rem; /* 48px */
+  --space-3xl: 4rem; /* 64px */
+
+  /* ===== BORDER RADIUS ===== */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 1rem; /* 16px */
+  --radius-full: 9999px;
+
+  /* ===== SHADOWS ===== */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
+
+  /* ===== TRANSITIONS ===== */
+  --transition-fast: 150ms ease;
+  --transition-base: 300ms ease;
+  --transition-slow: 500ms ease;
+
+  /* ===== BREAKPOINTS (pour référence dans les media queries) ===== */
+  /* Mobile: 0 - 767px */
+  /* Tablet: 768px - 1023px */
+  /* Desktop: 1024px - 1279px */
+  /* Large: 1280px+ */
+
+  /* ===== CONTAINER WIDTHS ===== */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+/* ===== IMPORT GOOGLE FONTS ===== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap");
+
+/* ===== BASE RESPONSIVE ===== */
+html {
+  font-size: 16px; /* Base pour les rem */
+}
+
+/* Réduction légère sur mobile pour meilleure lisibilité */
+@media (max-width: 767px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+/* ===== MIXINS UTILITAIRES (classes helper) ===== */
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin-inline: auto;
+  padding-inline: var(--space-md);
+}
+
+@media (max-width: 767px) {
+  .container {
+    padding-inline: var(--space-sm);
+  }
+}

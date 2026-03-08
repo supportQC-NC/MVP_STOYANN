@@ -1,12 +1,21 @@
-import React from 'react'
+
+
+import { Outlet } from "react-router-dom";
+import Header from "./Components/Layout/Header/Header";
+
 
 const App = () => {
   return (
     <>
-       <h1>Welcome to the MVP Frontend!</h1>
-       <p>This is a placeholder for the main application content.</p>
-    </>
-  )
-}
+    <Header />
+      <main>
+        <div className="container">
+          <Outlet />
+        </div>
+      </main>
 
-export default App
+    </>
+  );
+};
+
+export default App;

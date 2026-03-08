@@ -1,0 +1,67 @@
+/* ===== TEXTAREA COMPONENT ===== */
+.textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: var(--space-sm) var(--space-md);
+  font-family: var(--font-content);
+  font-size: var(--text-base);
+  color: var(--white);
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-md);
+  resize: vertical;
+  transition: all var(--transition-fast);
+}
+
+.textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2),
+              0 0 20px rgba(99, 102, 241, 0.1);
+}
+
+.textarea::placeholder {
+  color: var(--gray-500);
+}
+
+.textarea:disabled {
+  background: rgba(30, 41, 59, 0.5);
+  border-color: rgba(255, 255, 255, 0.05);
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* ===== STATES ===== */
+.textarea-error {
+  border-color: var(--danger);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+.textarea-error:focus {
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2),
+              0 0 20px rgba(239, 68, 68, 0.1);
+}
+
+.textarea-success {
+  border-color: var(--success);
+  background: rgba(34, 197, 94, 0.05);
+}
+
+.textarea-success:focus {
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2),
+              0 0 20px rgba(34, 197, 94, 0.1);
+}
+
+/* ===== FOOTER ===== */
+.textarea-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: var(--space-xs);
+}
+
+.textarea-count {
+  font-size: var(--text-sm);
+  color: var(--gray-500);
+  margin-left: auto;
+}
