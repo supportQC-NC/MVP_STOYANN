@@ -5,15 +5,16 @@ Organise automatiquement les fichiers dans la bonne structure
 sans modifier leur contenu.
 
 Usage: python organize_structure.py
-(À exécuter depuis le dossier src/)
+(Peut être exécuté depuis n'importe où, il se base sur son propre emplacement)
 """
 
 import os
 import shutil
 from pathlib import Path
 
-# 📁 Définir le chemin de base (exécuté depuis src/)
-BASE_PATH = Path(".")
+# 📁 Définir le chemin de base = dossier où se trouve ce script
+SCRIPT_PATH = Path(__file__).parent.resolve()
+BASE_PATH = SCRIPT_PATH
 
 # 🎨 Couleurs pour le terminal
 class Colors:
@@ -320,14 +321,12 @@ def main():
     print_header()
     
     # Vérifier qu'on est bien dans src
-    if not (BASE_PATH / "index.js").exists() and not (BASE_PATH / "index.jsx").exists():
-        print(f"{Colors.RED}❌ Erreur: Ce script doit être exécuté depuis le dossier 'src/'!{Colors.RESET}")
-        print(f"{Colors.YELLOW}💡 Placez ce fichier dans src/ et exécutez:{Colors.RESET}")
-        print(f"   cd src")
-        print(f"   python organize_structure.py")
+    if not (BASE_PATH / "index.js").exists() and not (BASE_PATH / "index.jsx").exists() and not (BASE_PATH / "index.css").exists():
+        print(f"{Colors.RED}❌ Erreur: Ce script doit être placé dans le dossier 'src/'!{Colors.RESET}")
+        print(f"{Colors.YELLOW}💡 Déplacez ce fichier dans le dossier src/ de votre projet React.{Colors.RESET}")
         return
     
-    print(f"{Colors.CYAN}📍 Dossier de travail: {Path.cwd()}{Colors.RESET}\n")
+    print(f"{Colors.CYAN}📍 Dossier de travail: {BASE_PATH}{Colors.RESET}\n")
     
     # Confirmer avant de continuer
     response = input(f"{Colors.YELLOW}Voulez-vous continuer? (o/n): {Colors.RESET}").strip().lower()
