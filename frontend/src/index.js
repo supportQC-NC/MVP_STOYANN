@@ -20,6 +20,7 @@ import App from "./App";
 import PrivateRoute from "./Components/Utils/PrivateRoute";
 import AdminRoute from "./Components/Utils/AdminRoute";
 import HomeScreen from "./Screens/Public/HomeScreen/HomeScreen";
+import NotFoundScreen from "./Screens/Public/NotFoundScreen/NotFoundScreen.jsx";
 
 
 
@@ -27,6 +28,7 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
       <Route index={true} path="/" element={<HomeScreen />} />
+      <Route index={true} path="/*" element={<NotFoundScreen />} />
 
   
 
